@@ -1,6 +1,6 @@
-##########  Core Infrastructure Template - VPC ##########
+#-----Core Infrastructure Template VPC------#
 
-#####----VPC----#####
+#----VPC----#
 resource "aws_vpc" "main" {
   cidr_block           = "${var.cidr_block}"
   enable_dns_hostnames = true
@@ -12,7 +12,7 @@ resource "aws_vpc" "main" {
   }
 }
 
-#####----GATEWAYS----#####
+#----GATEWAYS----#
 # Create necessary gateways for connectivity
 
 resource "aws_internet_gateway" "igw" {
@@ -37,7 +37,7 @@ resource "aws_nat_gateway" "ngw" {
   subnet_id     = "${element(aws_subnet.public.*.id, count.index)}"
 }
 
-#####----SUBNETS----#####
+#----SUBNETS----#
 
 resource "aws_subnet" "public" {
   depends_on              = ["aws_vpc.main"]
@@ -65,7 +65,7 @@ resource "aws_subnet" "private" {
   }
 }
 
-####---ROUTE TABLES---#####
+#-----ROUTE TABLES-----#
 
 resource "aws_route_table" "public" {
   vpc_id = "${aws_vpc.main.id}"
@@ -95,7 +95,7 @@ resource "aws_route" "route-natgw" {
   nat_gateway_id         = "${element(aws_nat_gateway.ngw.*.id, count.index)}"
 }
 
-#####----ROUTE TABLE ASSOCIATIONS-----#####
+#------ROUTE TABLE ASSOCIATIONS------#
 
 resource "aws_route_table_association" "public" {
   count          = "${length(var.public_subnet_cidr)}"

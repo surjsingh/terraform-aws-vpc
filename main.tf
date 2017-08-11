@@ -1,4 +1,4 @@
-#####----Core Infrastructure file----####
+#----Core Infrastructure file----#
 
 data "aws_caller_identity" "current" {}
 
