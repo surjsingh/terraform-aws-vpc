@@ -3,9 +3,9 @@
 ## Getting Started
 
 - Install the terraform from https://www.terraform.io/downloads.html on your dev environment and clone this repo.
-- set up your aws credentials ~/.aws/credentials
-- For running the terraform plan: ./tfplan.sh
-- For applying the plan         : ./tfapply.sh
+- set up your aws credentials here: `~/.aws/credentials`
+- For running the terraform plan:   `./tfplan.sh`
+- For applying the plan         :   `./tfapply.sh`
 
 
 ## VPC module
