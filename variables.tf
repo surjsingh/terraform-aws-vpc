@@ -1,7 +1,7 @@
 ##########  Dev Infrastructure Variables ##########
 
 variable "key_name" {
-  default = "mykey" # make sure that the key exists before
+  default = "mykey" # make sure that the key exists
 }
 
 provider "aws" {
