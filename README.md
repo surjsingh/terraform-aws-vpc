@@ -25,6 +25,10 @@
 
 - provision iam access role for bastion instance
 
+## Architecture diagram
+
+![image](https://user-images.githubusercontent.com/11966883/29213592-7fec2d38-7ec1-11e7-93db-90433be13a17.png)
+
 ## main file usage
 
 ```hcl
