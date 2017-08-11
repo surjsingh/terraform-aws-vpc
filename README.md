@@ -19,7 +19,7 @@
 
 ## Bastion module
 
-- - A `Linux bastion host` in each public subnet with an Elastic IP address to allow inbound Secure Shell (SSH) access to EC2 instances in public and private subnets.
+- A `Linux bastion host` in each public subnet with an Elastic IP address to allow inbound Secure Shell (SSH) access to EC2 instances in public and private subnets.
 - A `security group` for fine-grained inbound access control.
 - An Amazon `EC2 Auto Scaling group` with a configurable number of instances.
 - `Launch configuration` to associate with ASG specifying the user-data to associate the elastic ip.
@@ -27,7 +27,7 @@
 
 ## IAM module
 
-- `bastion instance role` with trust policy and iam access policy to associate the elastic ip. 
+- `bastion instance role` with trust policy and iam access policy to associate the elastic ip.
 
 ## Architecture diagram
 
