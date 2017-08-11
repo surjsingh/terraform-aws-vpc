@@ -1,4 +1,6 @@
-# bastion sg
+resource "aws_eip" "bastion" {
+  vpc = true
+}
 
 resource "aws_security_group" "bastion" {
   name        = "${var.product}-${var.environment}-bastion-sg"
@@ -39,6 +41,15 @@ resource "aws_security_group_rule" "bastion_all_egress" {
   security_group_id = "${aws_security_group.bastion.id}"
 }
 
+data "template_file" "user_data_bastion" {
+  template = "${file("${path.module}/user_data_bastion.tpl")}"
+
+  vars {
+    region     = "${var.region}"
+    elastic_ip = "${aws_eip.bastion.id}"
+  }
+}
+
 resource "aws_launch_configuration" "bastion" {
   name_prefix                 = "${var.product}-${var.environment}-lc-bastion-"
   key_name                    = "${var.key_name}"
@@ -47,6 +58,7 @@ resource "aws_launch_configuration" "bastion" {
   security_groups             = ["${aws_security_group.bastion.id}"]
   associate_public_ip_address = "${var.associate_public_ip_address}"
   iam_instance_profile        = "${var.iam_instance_profile_bastion}"
+  user_data                   = "${data.template_file.user_data_bastion.rendered}"
 
   lifecycle {
     create_before_destroy = true
@@ -68,6 +80,12 @@ resource "aws_autoscaling_group" "bastion" {
   tag {
     key                 = "Name"
     value               = "${var.product}-${var.environment}-bastion"
+    propagate_at_launch = true
+  }
+
+  tag {
+    key                 = "EIP"
+    value               = "${aws_eip.bastion.id}"
     propagate_at_launch = true
   }
 

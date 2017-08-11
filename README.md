@@ -11,19 +11,23 @@
 
 ## VPC module
 
-- provision 3 public and 3 private subnets across 3 availability zones for High availability
-- provision 1 public and 1 private route table
-- provision 3 elastic ips
-- provision 3 NAT gateways associated with 3 EIPs
-- provision Internet gateway
+- A `highly available architecture` that spans across three Availability Zones.
+- A VPC configured with `public and private subnets` according to AWS best practices, to provide you with your own virtual network on AWS.
+- `Public and private` route tables for routing internal and external traffic.
+- An `Internet gateway` to allow access to the Internet. This gateway is used by the bastion hosts to send and receive traffic.
+- `Managed NAT gateways` to allow outbound Internet access for resources in the private subnets.
 
 ## Bastion module
 
-- provision the linux bastion instance (aka jumpbox)
+- - A `Linux bastion host` in each public subnet with an Elastic IP address to allow inbound Secure Shell (SSH) access to EC2 instances in public and private subnets.
+- A `security group` for fine-grained inbound access control.
+- An Amazon `EC2 Auto Scaling group` with a configurable number of instances.
+- `Launch configuration` to associate with ASG specifying the user-data to associate the elastic ip.
+- `Elastic IP` addresses to associate with bastion host instance.
 
 ## IAM module
 
-- provision iam access role for bastion instance
+- `bastion instance role` with trust policy and iam access policy to associate the elastic ip. 
 
 ## Architecture diagram
 
