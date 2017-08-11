@@ -2,7 +2,8 @@
 
 ## Getting Started
 
-- Install the terraform from https://www.terraform.io/downloads.html on your dev environment and clone this repo.
+- Install the terraform from https://www.terraform.io/downloads.html on your dev environment.
+- clone this repo and update the variables.tf file on the root.
 - set up your aws credentials here: `~/.aws/credentials`
 - For running the terraform plan:   `./tfplan.sh`
 - For applying the plan         :   `./tfapply.sh`
@@ -18,7 +19,7 @@
 
 ## Bastion module
 
-- provision the bastion instance (aka jumpbox)
+- provision the linux bastion instance (aka jumpbox)
 
 ## IAM module
 
