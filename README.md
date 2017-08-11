@@ -10,11 +10,11 @@
 
 ## VPC module
 
-- creating 3 public and 3 private subnets across 3 availability zones for High availability
-- creating 1 public and 1 private route table
-- creating 3 elastic ips
-- creating 3 NAT gateways associated with 3 EIPs
-- Internet gateway
+- provision 3 public and 3 private subnets across 3 availability zones for High availability
+- provision 1 public and 1 private route table
+- provision 3 elastic ips
+- provision 3 NAT gateways associated with 3 EIPs
+- provision Internet gateway
 
 ## Bastion module
 
