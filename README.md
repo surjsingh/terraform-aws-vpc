@@ -27,7 +27,7 @@
 
 ## Architecture diagram
 
-![image](https://user-images.githubusercontent.com/11966883/29213592-7fec2d38-7ec1-11e7-93db-90433be13a17.png)
+![image](https://user-images.githubusercontent.com/11966883/29213723-25a0aa38-7ec2-11e7-8c96-9791d83b5700.png)
 
 ## main file usage
 
