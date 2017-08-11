@@ -1,6 +1,6 @@
 # terraform-aws-vpc
 
-#Getting Started
+## Getting Started
 
 - Install the terraform from https://www.terraform.io/downloads.html on your dev environment and clone this repo.
 - set up your aws credentials ~/.aws/credentials
@@ -26,7 +26,7 @@
 
 ## main file usage
 
-'''
+'''hcl
 module "aws_vpc" {
   source = "./module/vpc"
 
