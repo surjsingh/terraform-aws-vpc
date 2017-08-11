@@ -8,7 +8,7 @@
 - For applying the plan         : ./tfapply.sh
 
 
-##VPC module
+## VPC module
 
 - creating 3 public and 3 private subnets across 3 availability zones for High availability
 - creating 1 public and 1 private route table
@@ -26,7 +26,7 @@
 
 ## main file usage
 
-'
+'''
 module "aws_vpc" {
   source = "./module/vpc"
 
@@ -52,4 +52,4 @@ module "bastion" {
   key_name                     = "${var.key_name}"
   iam_instance_profile_bastion = "${module.iam.iam_instance_profile_bastion}"
 }
-'
+'''
