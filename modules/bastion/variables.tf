@@ -1,12 +1,12 @@
-variable "environment" {
-  default = "dev"
-}
+variable "environment" {}
 
 variable "product" {}
 
 variable "region" {}
 
 variable "vpc_id" {}
+
+variable "key_name" {}
 
 variable "allowed_cidr" {
   type        = "list"
@@ -31,8 +31,6 @@ variable "iam_instance_profile_bastion" {}
 variable "associate_public_ip_address" {
   default = true
 }
-
-variable "key_name" {
 
 variable "subnet_id" {
   type    = "list"

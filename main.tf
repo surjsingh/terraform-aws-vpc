@@ -3,7 +3,7 @@
 data "aws_caller_identity" "current" {}
 
 module "aws_vpc" {
-  source = "./module/vpc"
+  source = "./modules/vpc"
 
   region              = "${var.region}"
   product             = "${var.product}"
@@ -14,8 +14,13 @@ module "aws_vpc" {
   private_subnet_cidr = "${var.private_cidr_block}"
 }
 
+module "iam" {
+  source = "./modules/iam"
+}
+
+
 module "bastion" {
-  source = "./module/bastion"
+  source = "./modules/bastion"
 
   product                      = "${var.product}"
   region                       = "${var.region}"
