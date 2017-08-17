@@ -5,9 +5,9 @@
 - Install the terraform from https://www.terraform.io/downloads.html on your dev environment.
 - create a key-pair in aws region that will be used to provision infra.
 - clone this repo and update the variables.tf in root location with the below mandatory parameters:
-    key_name : <aws_key_name >
-    region   : <aws_region>
-    availability_zones : < 3 availability_zones>
+    1. key_name : <aws_key_name >
+    2. region   : <aws_region>
+    3. availability_zones : < 3 availability_zones>
 - For running the terraform plan:   `./tfplan.sh`
 - For applying the plan         :   `./tfapply.sh`
 
