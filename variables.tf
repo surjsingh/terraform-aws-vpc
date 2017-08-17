@@ -1,11 +1,11 @@
 #--- Main Infrastructure Variables -----#
 
-variable "key_name" {
-  default = "mykey" # make sure that the key exists
-}
-
 provider "aws" {
   region = "${var.region}"
+}
+
+variable "key_name" {
+  default = "mykey" # make sure that the key exists
 }
 
 variable "product" {
@@ -42,7 +42,7 @@ variable "private_cidr_block" {
 # Bastion
 
 variable "ami_bastion" {
-  default = "ami-95415ef3" # make sure the image exists in your aws region
+  default = "ami-4fffc834" # make sure the image exists in your aws region
 }
 
 variable "instance_type_bastion" {
