@@ -30,6 +30,7 @@
 - `bastion instance role` with trust policy and iam access policy to associate the elastic ip.
 
 ## Architecture diagram
+* Depicting 2 AZs
 
 ![image](https://user-images.githubusercontent.com/11966883/29213723-25a0aa38-7ec2-11e7-8c96-9791d83b5700.png)
 
