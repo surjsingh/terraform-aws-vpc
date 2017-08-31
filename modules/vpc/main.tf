@@ -68,7 +68,6 @@ resource "aws_subnet" "private" {
 #-----ROUTE TABLES-----#
 
 resource "aws_route_table" "public" {
-  count    = "${length(var.public_subnet_cidr)}"
   vpc_id = "${aws_vpc.main.id}"
 
   tags = {
@@ -77,8 +76,8 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route" "route-igw" {
-  count                  = "${length(var.public_subnet_cidr)}"
-  route_table_id         = "${element(aws_route_table.public.*.id, count.index)}"
+
+  route_table_id         = "${aws_route_table.public.id}"
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = "${aws_internet_gateway.igw.id}"
 }
@@ -104,7 +103,7 @@ resource "aws_route" "route-natgw" {
 resource "aws_route_table_association" "public" {
   count          = "${length(var.public_subnet_cidr)}"
   subnet_id      = "${element(aws_subnet.public.*.id, count.index)}"
-  route_table_id = "${element(aws_route_table.public.*.id, count.index)}"
+  route_table_id = "${aws_route_table.public.id}"
 }
 
 resource "aws_route_table_association" "private" {
