@@ -17,5 +17,5 @@ output "vpc_public_routetable" {
 }
 
 output "vpc_private_routetable" {
-  value = "${aws_route_table.private.id}"
+  value = "${aws_route_table.private.*.id}"
 }
