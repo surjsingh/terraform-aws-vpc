@@ -1,6 +1,6 @@
 
 resource "aws_security_group" "serviceOne" {
-  name        = "${var.product}-${var.environment}-bastion-sg"
+  name        = "${var.product}-${var.environment}-serviceOne-sg"
   vpc_id      = "${var.vpc_id}"
   description = "serviceOne security group (only SSH inbound access is allowed from bastion)"
 
@@ -9,7 +9,7 @@ resource "aws_security_group" "serviceOne" {
   }
 }
 
-resource "aws_security_group_rule" "ssh_ingress" {
+resource "aws_security_group_rule" "ssh_ingress_bastion" {
   type              = "ingress"
   from_port         = "22"
   to_port           = "22"
@@ -18,7 +18,7 @@ resource "aws_security_group_rule" "ssh_ingress" {
   security_group_id = "${aws_security_group.serviceOne.id}"
 }
 
-resource "aws_security_group_rule" "bastion_all_egress" {
+resource "aws_security_group_rule" "serviceOne_all_egress" {
   type              = "egress"
   from_port         = "0"
   to_port           = "0"

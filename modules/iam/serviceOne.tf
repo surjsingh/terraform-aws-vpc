@@ -1,6 +1,6 @@
-# Bastion IAM
+# serviceOne IAM
 
-data "aws_iam_policy_document" "assume-role-policy" {
+data "aws_iam_policy_document" "assume-role-policy-serviceOne" {
   statement {
     actions = [
       "sts:AssumeRole",
@@ -30,7 +30,7 @@ resource "aws_iam_instance_profile" "serviceOne-instance-profile" {
 resource "aws_iam_role" "serviceOne-instance-role" {
   description        = "Managed by terraform"
   name               = "serviceOne-instance-role"
-  assume_role_policy = "${data.aws_iam_policy_document.assume-role-policy.json}"
+  assume_role_policy = "${data.aws_iam_policy_document.assume-role-policy-serviceOne.json}"
 
   lifecycle {
     create_before_destroy = true
