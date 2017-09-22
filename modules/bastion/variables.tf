@@ -22,9 +22,7 @@ variable "allowed_ipv6_cidr" {
 
 variable "ami_bastion" {}
 
-variable "instance_type_bastion" {
-  default = "t2.micro"
-}
+variable "instance_type_bastion" {}
 
 variable "iam_instance_profile_bastion" {}
 
@@ -32,7 +30,7 @@ variable "associate_public_ip_address" {
   default = true
 }
 
-variable "subnet_id" {
+variable "public_subnet_id" {
   type    = "list"
   default = []
 }

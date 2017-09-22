@@ -48,3 +48,13 @@ variable "ami_bastion" {
 variable "instance_type_bastion" {
   default = "t2.micro"
 }
+
+#serviceOne
+
+variable "ami_serviceOne" {
+  default = "ami-4fffc834" # make sure the image exists in your aws region
+}
+
+variable "instance_type_serviceOne" {
+  default = "t2.micro"
+}
