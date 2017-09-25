@@ -29,6 +29,13 @@
 - `Launch configuration` to associate with ASG specifying the user-data to associate the elastic ip.
 - `Elastic IP` addresses to associate with bastion host instance.
 
+## ServiceOne module
+
+- A `Linux host` in private subnet with no inbound internet access.
+- A `security group` for fine-grained ssh inbound access control only from bastion.
+- An Amazon `EC2 Auto Scaling group` with a configurable number of instances.
+- `Launch configuration` to associate with ASG specifying
+
 ## IAM module
 
 - `bastion instance role` with trust policy and iam access policy to associate the elastic ip.
