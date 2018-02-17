@@ -1,4 +1,4 @@
-# terraform-aws-vpc
+# terraform-aws-vpc with AWSPEC
 
 ## Getting Started
 
@@ -95,3 +95,13 @@
     }
 
 ```
+
+## AWSPEC TESTS
+
+- Follow the below Readme.
+https://github.com/k1LoW/awspec/blob/master/README.md
+
+
+
+
+
