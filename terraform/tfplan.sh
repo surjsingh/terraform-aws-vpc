@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REGION = us-east-1
+REGION="us-east-1"
 usage()
 {
     echo 'To be called from the root/terraform-aws-vpc directory'
