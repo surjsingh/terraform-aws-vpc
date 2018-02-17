@@ -1,4 +1,11 @@
 #----Core Infrastructure file----#
+terraform {
+  backend "s3" {
+    bucket = "terraform-demo-remote-state"
+    key    = "dev/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
 
 data "aws_caller_identity" "current" {}
 
