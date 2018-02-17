@@ -48,7 +48,7 @@
 ## main file usage
 
 ```hcl
-    module "aws_vpc" {
+    module "vpc" {
       source = "./modules/vpc"
 
       region              = "${var.region}"
