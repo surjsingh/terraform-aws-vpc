@@ -87,7 +87,7 @@ resource "aws_route_table" "private" {
   vpc_id = "${aws_vpc.main.id}"
 
   tags = {
-    Name = "${var.environment}-private-route"
+    Name = "${var.environment}-private-route-${element(var.availability_zones, count.index)}"
   }
 }
 

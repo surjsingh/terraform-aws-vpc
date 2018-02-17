@@ -1,7 +1,2 @@
-.idea
-.terraform
-*.retry
-*.DS_Store
-*.iml
-*plan.out
-terraform*
+# Created by .ignore support plugin (hsz.mobi)
+.idea/

@@ -10,7 +10,7 @@
     3. availability_zones : < 3 availability_zones>
 - For running the terraform plan:   `./tfplan.sh`
 - For applying the plan         :   `./tfapply.sh`
-- NOTE: For destroying the environment run `terraform plan -destroy` to look at your destroy plan and then execute 'terraform destroy`
+- NOTE: For destroying the environment run `./tfplan -destroy` to look at your destroy plan and then execute 'terraform destroy`
 
 
 ## VPC module

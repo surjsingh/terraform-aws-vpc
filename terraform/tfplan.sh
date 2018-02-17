@@ -12,4 +12,4 @@ export AWS_SHARED_CREDENTIALS_FILE
 terraform init
 terraform get
 
-terraform plan -out ./plan.out -lock=false
+terraform plan -out ./plan.out -lock=false $@
