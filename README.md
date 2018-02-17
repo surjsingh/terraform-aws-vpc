@@ -98,7 +98,7 @@
 
 ## AWSPEC TESTS
 
-- Follow the below Readme.
+- Follow the Readme.
 https://github.com/k1LoW/awspec/blob/master/README.md
 
 
