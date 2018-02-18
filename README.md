@@ -106,6 +106,10 @@
     `bundle install`
     
     `bundle exec rake spec`
+
+- For generating and showing HTML report after running tests (requires installation of "allure" in system Path)
+    `bundle exec rake all`
+
 - For more details,follow the Readme.
 https://github.com/k1LoW/awspec/blob/master/README.md
 

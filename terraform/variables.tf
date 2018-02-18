@@ -1,6 +1,6 @@
 #--- Main Infrastructure Variables -----#
 terraform {
-  required_version = ">= 0.10.0, < 0.10.3"
+  required_version = ">= 0.10.0, < 0.11.4"
 }
 
 
