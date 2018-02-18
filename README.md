@@ -96,9 +96,16 @@
 
 ```
 
-## AWSPEC TESTS
+## Awspec Tests
 
-- Follow the Readme.
+- Go to direcory awspec and set you aws region & keys in the spec/secrets.yml and run the below commands after provisioning the above infra.
+    
+    `gem install bundler`
+    
+    `bundle install`
+    
+    `bundle exec rake spec`
+- For more details,follow the Readme.
 https://github.com/k1LoW/awspec/blob/master/README.md
 
 
