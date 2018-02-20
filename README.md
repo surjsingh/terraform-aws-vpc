@@ -97,15 +97,18 @@
 
 ```
 
-## Awspec Tests
+## Awspec and InSpec Tests
 
-- Go to direcory awspec and set you aws region & keys in the spec/secrets.yml and run the below commands after provisioning the above infra.
+- Go to direcory specs and set you aws region & keys in the spec/secrets.yml and run the below commands after provisioning the above infra.
     
     `gem install bundler`
     
     `bundle install`
     
     `bundle exec rake spec`
+
+- For InSpec tests, go to the 'specs' folder and execute
+    `bundle exec rake inspec_tests <bastion-server-private-key>`
 
 - For generating and showing HTML report after running tests (requires installation of "allure" in system Path)
     `bundle exec rake all`

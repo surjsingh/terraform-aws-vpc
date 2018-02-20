@@ -1,2 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
+specs/inspec/controls/inspec.lock
+specs/inspec/inspec.lock
+specs/reports/Allure-HTML-Report/*
+specs/reports/Allure-results/*
+specs/reports/allure-report/*
+terraform/.terraform/*
+specs/inspec/libraries/.gitkeep
+specs/spec/.gitignore
+specs/.bundle
+.terraform/*

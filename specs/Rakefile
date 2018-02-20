@@ -1,0 +1,70 @@
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new('spec')
+
+task :default => :spec
+
+desc "To run awspec tests and then publish and host results"
+task :all do
+  begin[:spec, :generate_report, :host_report].each do |t|
+    Rake::Task[t].invoke
+    end
+  rescue
+    next
+  ensure
+    Rake::Task[:host_report].invoke
+  end
+end
+
+def generate_report
+  puts "Generating report..."
+  system("allure generate -c reports/allure-results -o reports/Allure-HTML-Report")
+end
+
+def host_report
+  puts "Hosting report..."
+  system("allure open reports/Allure-HTML-Report")
+end
+
+desc "To generate reports only post Rake exec step"
+task :generate_report do
+    puts "Generating reports"
+    generate_report
+end
+
+desc "To host the report generated after spec is run"
+task :host_report do
+    puts "Hosting reports"
+    host_report
+end
+
+desc "To run InSpec tests - Use 'rake inspec_tests <ec2 key location>'"
+task :inspec_tests do
+    puts "Running InSpec tests"
+    bastion_ip = %x{cd ../terraform && terraform output bastion-eip}
+
+    if bastion_ip.empty?
+      puts "Could not get bastion public IP... exiting"
+      return
+    else
+      bastion_ip = bastion_ip.gsub("\n",'')
+      puts "Bastion IP - #{bastion_ip}"
+    end 
+  
+    if ARGV.length > 2
+      puts "More than one argument passed to rake. Expecting only one."
+      return
+    else
+      ARGV.each { |a| task a.to_sym do ; end }
+      key_file = ARGV[1].to_s
+      if File.exist?(key_file)
+        puts "Argument Key File #{key_file}"
+      else
+        puts "No key file with the name - #{key_file} exists at the specified location"
+        return
+      end
+    end
+
+    sh_cmd =  "inspec exec inspec/controls"
+    sh_cmd += " -t ssh://ec2-user@#{bastion_ip} -i #{key_file}"
+    sh(sh_cmd)
+end
