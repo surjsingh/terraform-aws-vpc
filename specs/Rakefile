@@ -76,6 +76,6 @@ task :inspec_tests do
 
     #sh_cmd =  "inspec exec inspec/controls"
     sh_cmd =  "inspec exec #{control_name}"
-    sh_cmd += " -t ssh://ec2-user@#{bastion_ip} -i #{key_file} --reporter html:~/Desktop/InSpecReport.html"
+    sh_cmd += " -t ssh://ec2-user@#{bastion_ip} -i #{key_file}"
     sh(sh_cmd)
 end
