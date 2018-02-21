@@ -40,7 +40,7 @@ end
 desc "To run InSpec tests - Use 'rake inspec_tests <ec2 key location>'"
 task :inspec_tests do
     puts "Running InSpec tests"
-    bastion_ip = %x{cd ../terraform && terraform output bastion-eip}
+    bastion_ip = %x{cd ../terraform && terraform init && terraform output bastion-eip}
 
     if bastion_ip.empty?
       puts "Could not get bastion public IP... exiting"
