@@ -1,0 +1,8 @@
+name: inspec
+title: InSpec Profile for tests as part of IaC demo
+maintainer: Surjeet Singh/Harmeet Singh
+copyright: The Authors
+copyright_email: harmeets@thoughtworks.com, surjeets@thoughtworks.com
+license: Apache-2.0
+summary: An InSpec Compliance Profile written as part of the IaC demo
+version: 0.1.0
