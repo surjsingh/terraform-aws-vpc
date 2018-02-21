@@ -9,6 +9,6 @@ usage()
 
 AWS_SHARED_CREDENTIALS_FILE=~/.aws/credentials
 export AWS_SHARED_CREDENTIALS_FILE
-terraform get
+terraform init
 
 terraform plan -out ./plan.out -lock=false $@
