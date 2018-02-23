@@ -116,7 +116,10 @@
 - For more details,follow the Readme.
 https://github.com/k1LoW/awspec/blob/master/README.md
 
+## Jenkins Pipeline
 
+- This project can further be automated via jenkins `pipeline as code`.
+- Demo `Jenkinsfile` is placed in the root directory of the project.
 
 
 
