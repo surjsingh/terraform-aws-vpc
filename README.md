@@ -108,7 +108,20 @@
     `bundle exec rake spec`
 
 - For InSpec tests, go to the 'specs' folder and execute
-    `bundle exec rake inspec_tests <bastion-server-private-key>`
+
+    `bundle exec rake <inspec-control-path> <bastion-server-private-key>`
+
+    - inspec-control-path can be a local InSpec control added to the project (value "inspec/controls" can be used for running the default control included in this example). 
+    
+    `bundle exec rake inspec/controls <bastion-server-private-key>`
+
+    However, this parameter can have a git repo path of any control maintained on github. Example - running "inspec supermarket profiles" (you need inspec installed and configured on your system) gives a list of community git repos available to be used as compliance controls. 
+    
+    For example, inspec supermarket lists "DevSec SSL/TLS Baseline - dev-sec/ssl-baseline". This represents the path of git repo that can be used for SSL/TLS compliance. The usage of such control with rake would be
+
+    `bundle exec rake https://github.com/dev-sec/ssl-baseline <bastion-server-private-key>`
+
+
 
 - For generating and showing HTML report after running tests (requires installation of "allure" in system Path)
     `bundle exec rake all`
