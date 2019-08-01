@@ -62,3 +62,8 @@ variable "ami_serviceOne" {
 variable "instance_type_serviceOne" {
   default = "t2.micro"
 }
+
+variable "password" {
+  default = "qadc,sd,345"
+}
+
