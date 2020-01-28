@@ -645,7 +645,7 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
     rubyntlm (0.6.2)
-    rubyzip (1.2.1)
+    rubyzip (1.2.3)
     semverse (2.0.0)
     sslshake (1.2.0)
     syntax (1.2.2)
