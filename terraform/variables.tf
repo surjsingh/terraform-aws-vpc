@@ -116,7 +116,23 @@ locals {
         from_port   = 8080
         to_port     = 8080
         protocol    = "tcp"
-        cidr_block  = var.cidr_block
+        cidr_block  = var.public_cidr_block[0]
+      },
+      {
+        rule_number = 101
+        rule_action = "allow"
+        from_port   = 8080
+        to_port     = 8080
+        protocol    = "tcp"
+        cidr_block  = var.public_cidr_block[1]
+      },
+      {
+        rule_number = 102
+        rule_action = "allow"
+        from_port   = 8080
+        to_port     = 8080
+        protocol    = "tcp"
+        cidr_block  = var.public_cidr_block[1]
       }
 
 
@@ -128,7 +144,23 @@ locals {
         from_port   = 3306
         to_port     = 3306
         protocol    = "tcp"
-        cidr_block  = var.cidr_block
+        cidr_block  = var.private_cidr_block[0]
+      },
+      {
+        rule_number = 101
+        rule_action = "allow"
+        from_port   = 3306
+        to_port     = 3306
+        protocol    = "tcp"
+        cidr_block  = var.private_cidr_block[1]
+      },
+      {
+        rule_number = 102
+        rule_action = "allow"
+        from_port   = 3306
+        to_port     = 3306
+        protocol    = "tcp"
+        cidr_block  = var.private_cidr_block[2]
       }
     ]
   }
