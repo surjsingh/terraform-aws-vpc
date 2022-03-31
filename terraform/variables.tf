@@ -71,7 +71,7 @@ locals {
       {
         rule_number = 900
         rule_action = "allow"
-        from_port   = 1024
+        from_port   = 49152
         to_port     = 65535
         protocol    = "tcp"
         cidr_block  = "0.0.0.0/0"
@@ -105,7 +105,7 @@ locals {
       {
         rule_number = 900
         rule_action = "allow"
-        from_port   = 1024
+        from_port   = 49152
         to_port     = 65535
         protocol    = "tcp"
         cidr_block  = var.cidr_block
@@ -113,34 +113,20 @@ locals {
       {
         rule_number = 100
         rule_action = "allow"
-        from_port   = 80
-        to_port     = 80
-        protocol    = "tcp"
-        cidr_block  = var.cidr_block
-      },
-      {
-        rule_number = 110
-        rule_action = "allow"
-        from_port   = 443
-        to_port     = 443
-        protocol    = "tcp"
-        cidr_block  = var.cidr_block
-      },
-      {
-        rule_number = 120
-        rule_action = "allow"
-        from_port   = 22
-        to_port     = 22
+        from_port   = 8080
+        to_port     = 8080
         protocol    = "tcp"
         cidr_block  = var.cidr_block
       }
+
+
     ]
     data_inbound = [
       {
         rule_number = 100
         rule_action = "allow"
-        from_port   = 1433
-        to_port     = 1433
+        from_port   = 3306
+        to_port     = 3306
         protocol    = "tcp"
         cidr_block  = var.cidr_block
       }
