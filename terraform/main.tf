@@ -1,7 +1,7 @@
 #----Core Infrastructure file----#
 terraform {
   backend "s3" {
-    bucket = "terraform-cloudreach-remote-state"
+    bucket = "terraform-cloudy-remote-state"
     key    = "dev/terraform.tfstate"
     region = "us-east-1"
   }
