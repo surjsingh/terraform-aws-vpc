@@ -631,7 +631,7 @@ GEM
     racc (1.6.0)
     rainbow (2.2.2)
       rake
-    rake (12.3.0)
+    rake (12.3.3)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -692,7 +692,7 @@ DEPENDENCIES
   awspec
   bundler (~> 1.9)
   inspec
-  rake (~> 12.0)
+  rake (~> 12.3)
   syntax
 
 BUNDLED WITH
