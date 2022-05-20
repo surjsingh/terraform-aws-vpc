@@ -7,9 +7,10 @@ resource "aws_security_group" "bastion" {
   vpc_id      = var.vpc_id
   description = "Bastion security group (only SSH inbound access is allowed)"
 
-  tags {
+  tags = {
     Name = "${var.product}-${var.environment}-bastion-sg"
   }
+  
 }
 
 resource "aws_security_group_rule" "ssh_ingress" {
@@ -44,7 +45,7 @@ resource "aws_security_group_rule" "bastion_all_egress" {
 data "template_file" "user_data_bastion" {
   template = "${file("${path.module}/user_data_bastion.tpl")}"
 
-  vars {
+  vars = {
     region     = var.region
     elastic_ip = aws_eip.bastion.id
   }
@@ -67,9 +68,9 @@ resource "aws_launch_configuration" "bastion" {
 
 resource "aws_autoscaling_group" "bastion" {
   name                      = "${var.product}-${var.environment}-bastion"
-  vpc_zone_identifier       = ["${element(var.public_subnet_id, count.index)}"]
-  desired_capacity          = "1"
-  min_size                  = "1"
+  vpc_zone_identifier       = var.public_subnet_id
+  desired_capacity          = "0"
+  min_size                  = "0"
   max_size                  = "1"
   health_check_grace_period = "60"
   health_check_type         = "EC2"

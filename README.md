@@ -17,8 +17,8 @@
 ## VPC module
 
 - A `highly available architecture` that spans across three Availability Zones.
-- A VPC configured with `public and private subnets` according to AWS best practices, to provide you with your own virtual network on AWS.
-- `Public and private` route tables for routing internal and external traffic.
+- A VPC configured with `public and private and data(optional)subnets` according to AWS best practices, to provide you with your own virtual network on AWS.
+- `Public and private and data` route tables for routing internal and external traffic.
 - An `Internet gateway` to allow access to the Internet. This gateway is used by the bastion hosts to send and receive traffic.
 - `Managed NAT gateways` to allow outbound Internet access for resources in the private subnets.
 

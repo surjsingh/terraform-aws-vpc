@@ -4,7 +4,7 @@ resource "aws_security_group" "serviceOne" {
   vpc_id      = var.vpc_id
   description = "serviceOne security group (only SSH inbound access is allowed from bastion)"
 
-  tags {
+  tags = {
     Name = "${var.product}-${var.environment}-serviceOne-sg"
   }
 }
@@ -44,7 +44,7 @@ resource "aws_launch_configuration" "serviceOne" {
 
 resource "aws_autoscaling_group" "serviceOne" {
   name                      = "${var.product}-${var.environment}-serviceOne"
-  vpc_zone_identifier       = ["${element(var.private_subnet_id, count.index)}"]
+  vpc_zone_identifier       = var.private_subnet_id
   desired_capacity          = "1"
   min_size                  = "1"
   max_size                  = "1"
