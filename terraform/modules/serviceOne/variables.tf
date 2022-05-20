@@ -15,7 +15,7 @@ variable "instance_type_serviceOne" {}
 variable "iam_instance_profile_serviceOne" {}
 
 variable "private_subnet_id" {
-  type    = "list"
+  type    = list
   default = []
 }
 

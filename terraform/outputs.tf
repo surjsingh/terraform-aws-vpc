@@ -1,3 +1,3 @@
-output "bastion-eip" {
-  value = "${module.bastion.bastion-eip}"
-}
+//output "bastion-eip" {
+//  value = "${module.bastion.bastion-eip}"
+//}

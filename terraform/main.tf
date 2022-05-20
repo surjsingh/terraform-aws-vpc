@@ -1,7 +1,7 @@
 #----Core Infrastructure file----#
 terraform {
   backend "s3" {
-    bucket = "terraform-demo-remote-state"
+    bucket = "terraform-cloudy-remote-state"
     key    = "dev/terraform.tfstate"
     region = "us-east-1"
   }
@@ -12,19 +12,24 @@ data "aws_caller_identity" "current" {}
 module "vpc" {
   source = "./modules/vpc"
 
-  region              = "${var.region}"
-  product             = "${var.product}"
-  cidr_block          = "${var.cidr_block}"
-  environment         = "${var.environment}"
-  availability_zones  = "${var.availability_zones}"
-  public_subnet_cidr  = "${var.public_cidr_block}"
-  private_subnet_cidr = "${var.private_cidr_block}"
+  region              = var.region
+  product             = var.product
+  cidr_block          = var.cidr_block
+  environment         = var.environment
+  availability_zones  = var.availability_zones
+  public_subnet_cidr  = var.public_cidr_block
+  private_subnet_cidr = var.private_cidr_block
+  data_subnet_cidr    = var.data_cidr_block
+  default_outbound_acl_rules = concat(local.network_acls["default_outbound"])
+  private_inbound_acl_rules  = concat(local.network_acls["private_inbound"])
+  public_inbound_acl_rules   = concat(local.network_acls["public_inbound"])
+  data_inbound_acl_rules     = concat(local.network_acls["data_inbound"])
+
 }
 
 module "iam" {
   source = "./modules/iam"
 }
-
 
 module "bastion" {
   source = "./modules/bastion"

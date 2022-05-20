@@ -9,13 +9,13 @@ variable "vpc_id" {}
 variable "key_name" {}
 
 variable "allowed_cidr" {
-  type        = "list"
+  type        = list
   default     = ["0.0.0.0/0"]
   description = "A list of CIDR Networks to allow ssh access to."
 }
 
 variable "allowed_ipv6_cidr" {
-  type        = "list"
+  type        = list
   default     = ["::/0"]
   description = "A list of IPv6 CIDR Networks to allow ssh access to."
 }
@@ -31,6 +31,6 @@ variable "associate_public_ip_address" {
 }
 
 variable "public_subnet_id" {
-  type    = "list"
+  type    = list
   default = []
 }
